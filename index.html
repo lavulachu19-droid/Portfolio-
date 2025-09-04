@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>My Portfolio</h1>
+
+    <nav>
+
+      <ul>
+
+        <li><a href="#hero">Home</a></li>
+
+        <li><a href="#about">About</a></li>
+
+        <li><a href="#skills">Skills</a></li>
+
+        <li><a href="#projects">Projects</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <!-- Hero Section with Photo -->
+  
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <!-- Student Photo -->
+    
+    <!-- ✅ Profile Image Section -->
+      <div class="hero-img" style="text-align:center; margin-top:20px;">
+        <img
+          id="profilePic"
+          alt="My Profile Picture"
+          class="profile-pic"
+          style="width:200px; height:200px; border-radius:50%; object-fit:cover; box-shadow:0 8px 20px rgba(0,0,0,.3);"
+        />
+      </div>
+    </div>
+  </header>
+
+    <div>
+      <h2>Hello, I'm Lavanya S</h2>
+      <p>Web Developer | Learner | Coder</p>
+    </div>
+  </div>
+</section>
+
+  <section id="about" class="about">
+
+    <h2>About Me</h2>
+
+    <p>
+
+      Hi! I'm a passionate student learning web development and programming. I enjoy building creative projects 
+
+      and continuously improving my skills.
+
+    </p>
+
+  </section>
+
+  <section id="skills" class="skills">
+
+    <h2>My Skills</h2>
+
+    <ul>
+
+      <li>HTML</li>
+
+      <li>CSS</li>
+
+      <li>JavaScript</li>
+
+      <li>Python</li>
+
+      <li>C++</li>
+
+    </ul>
+
+  </section>
+
+  <section id="projects" class="projects">
+
+    <h2>Projects</h2>
+
+    <div class="card">
+
+      <h3>Portfolio Website</h3>
+
+      <p>A responsive portfolio website made using HTML, CSS, and JavaScript.</p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Calculator App</h3>
+
+      <p>A simple calculator built with JavaScript functions.</p>
+
+    </div>
+
+  </section>
+
+  <section id="contact" class="contact">
+
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+
+      <input type="text" placeholder="Your Name" required>
+
+      <input type="email" placeholder="Your Email" required>
+
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
+
+  </section>
+
+  <footer>
+
+    <p>&copy; 2025 lavanya. All Rights Reserved.</p>
+
+  </footer>
+  
+  <!-- ✅ Script to load Google Drive Image -->
+  <script>
+    // Put either your file ID or full Google Drive share link here
+    const DRIVE_INPUT = "1c89SHLmNAT51VwG9PhIjo2XGHmSKMhIk";
+    // Extract ID if full link was pasted
+    const id = (String(DRIVE_INPUT).match(/[-\w]{25,}/) || [String(DRIVE_INPUT).trim()])[0];
+    const candidates = [
+      `https://drive.google.com/uc?export=view&id=${id}`,
+      `https://drive.google.com/uc?export=download&id=${id}`,
+      `https://drive.usercontent.google.com/uc?id=${id}&export=download`,
+
+      `https://drive.google.com/thumbnail?id=${id}&sz=w2000`
+    ];
+      const img = document.getElementById("profilePic");
+    let i = 0;
+    function tryNext() {
+      if (i >= candidates.length) {
+        img.alt = "⚠️ Could not load image. Check Drive sharing settings.";
+        return;
+      }
+      const url = candidates[i++];
+      img.onerror = tryNext;
+      img.src = url;
+    }
+    tryNext();
+   </script>
+
+</body>
+
+</html>
